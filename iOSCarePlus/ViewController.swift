@@ -58,8 +58,7 @@ class ViewController: UIViewController {
     }
     private func blinkLogoAnimation() {
         UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse]) {
-            [weak self] in
-            self?.logoView.alpha = 0 
+            [weak self] in self?.logoView.alpha = 0 
         }
     }
 }

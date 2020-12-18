@@ -26,10 +26,10 @@ struct NewGameContent: Decodable {
     }
 }
 
-struct ScreenShotContent: Decodable{
+struct ScreenShotContent: Decodable {
     let images: [ImageURL]
 }
 
-struct ImageURL: Decodable{
+struct ImageURL: Decodable {
     let url: String
 }
