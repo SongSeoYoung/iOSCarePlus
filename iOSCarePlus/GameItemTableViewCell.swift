@@ -26,11 +26,12 @@ class GameItemTableViewCell: UITableViewCell {
         guard let model = model else { return }
         let imageURL = URL(string: model.imageURL)
         let borderColor = UIColor(red: 236 / 255.0, green: 236 / 255.0, blue: 236 / 255.0, alpha: 1).cgColor
+        //rgb 는 0~1사이 값을 받기 대문에 우리가원하는 값을 소수점으로 나눠서 표현함
         gameImageView.kf.setImage(with: imageURL)
         gameImageView.layer.cornerRadius = 9
         gameImageView.layer.borderWidth = 1
         gameImageView.layer.borderColor = borderColor
-        //rgb 는 0~1사이 값을 받기 대문에 우리가원하는 값을 소수점으로 나눠서 표현함
+        
         gameTitleLabel.text = model.gameTitle
         if let discountPrice = model.gameDiscountPrice {
             gameCurrentPrice.text = "\(discountPrice)"
