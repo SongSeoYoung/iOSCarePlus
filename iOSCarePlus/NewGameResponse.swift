@@ -22,9 +22,14 @@ struct NewGameContent: Decodable {
     enum CodingKeys: String, CodingKey {
         case formalName = "formal_name"
         case heroBannerURL = "hero_banner_url"
+        case screenshots
     }
 }
 
 struct ScreenShotContent: Decodable{
-    let images: [String]
+    let images: [ImageURL]
+}
+
+struct ImageURL: Decodable{
+    let url: String
 }

@@ -51,7 +51,9 @@ extension GameListViewController: UITableViewDataSource {
                 gameTitle: content.formalName,
                 gameOriginPrice: 10000,
                 gameDiscountPrice: nil,
-                imageURL: content.heroBannerURL)
+                imageURL: content.heroBannerURL,
+                screenshots: content.screenshots
+            )
             cell.setModel(model)
             return cell
         }

@@ -11,4 +11,5 @@ struct GameItemModel {
     let gameOriginPrice: Int
     let gameDiscountPrice: Int?     //깂이 있을 수도 , 없을 수도 있어서 옵셔널
     let imageURL: String
+    let screenshots: [ScreenShotContent]
 }
