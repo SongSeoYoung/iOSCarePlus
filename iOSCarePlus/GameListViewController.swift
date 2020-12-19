@@ -28,7 +28,7 @@ class GameListViewController: UIViewController {
             //request 의 결과는 response 에서 가져오는 클로저로 작업
             let decoder = JSONDecoder() //객체생성
             let model = try? decoder.decode(NewGameResponse.self, from: data)
-            //NewGameResponse.self => newfameresponse 타입을 넘겨준다의 의미
+            //NewGameResponse.self => newgameresponse 타입을 넘겨준다의 의미
             self?.model = model
         }
 

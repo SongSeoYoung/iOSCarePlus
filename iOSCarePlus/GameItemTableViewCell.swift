@@ -31,7 +31,6 @@ class GameItemTableViewCell: UITableViewCell {
         gameImageView.layer.cornerRadius = 9
         gameImageView.layer.borderWidth = 1
         gameImageView.layer.borderColor = borderColor
-        
         gameTitleLabel.text = model.gameTitle
         if let discountPrice = model.gameDiscountPrice {
             gameCurrentPrice.text = "\(discountPrice)"
