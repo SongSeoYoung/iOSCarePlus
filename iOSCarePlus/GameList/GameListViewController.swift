@@ -54,9 +54,7 @@ class GameListViewController: UIViewController {
                 //model?.content 라는게 배열로 이루어져있어서 앞으로 데이터를 계속 쌓아야하기에 append 해주는 형태로 구현
                 self?.model?.contents.append(contentsOf: newModel.contents)
             }
-
         }
-
     }
 
     //indicator르르 불러야할 타이밍인지 체크하는 함수
@@ -65,7 +63,6 @@ class GameListViewController: UIViewController {
     private func isIndicatorCell(_ indexPath: IndexPath) -> Bool {
         indexPath.row == model?.contents.count
     }
-
 }
 
 extension GameListViewController: UITableViewDelegate {
@@ -91,7 +88,6 @@ extension GameListViewController: UITableViewDataSource {
             newOffset += 10      //10번째 부터 새롭게 10개를 더 콜해줌
             newGameListApiCall()
         }
-
     }
 
     //cell 이 그려지기 직전에 호출됨
@@ -102,7 +98,7 @@ extension GameListViewController: UITableViewDataSource {
         //row는 0부터 세고 contentcount 는 1부터세기에
         //row 랑 count 랑 갯수가 같다는 것은 !!!마지막 추가된 비어있는 셀을 의미!!!!
         if isIndicatorCell(indexPath) {
-            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "indicatorCell", for: indexPath) as? IndicatorCell else { return UITableViewCell()}
+            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "indicatorCell", for: indexPath) as? IndicatorCell else { return UITableViewCell() }
             cell.animationIndicatorView()
             return cell
         }
