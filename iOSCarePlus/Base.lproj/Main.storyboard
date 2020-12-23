@@ -129,6 +129,27 @@ Store</string>
                                             <outlet property="gameTitleLabel" destination="sBP-IF-bGr" id="Aqb-2b-iXq"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="indicatorCell" rowHeight="97" id="uKT-fT-r9b" customClass="IndicatorCell" customModule="iOSCarePlus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="135" width="414" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uKT-fT-r9b" id="ozg-FT-M8u">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-xv-jNa">
+                                                    <rect key="frame" x="197" y="20" width="20" height="57"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fyg-xv-jNa" firstAttribute="centerX" secondItem="ozg-FT-M8u" secondAttribute="centerX" id="GB5-w0-evV"/>
+                                                <constraint firstAttribute="bottom" secondItem="fyg-xv-jNa" secondAttribute="bottom" constant="20" id="JOg-fh-SXu"/>
+                                                <constraint firstItem="fyg-xv-jNa" firstAttribute="top" secondItem="ozg-FT-M8u" secondAttribute="top" constant="20" id="jp1-0x-blP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicatorView" destination="fyg-xv-jNa" id="nno-oH-AhR"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="96C-nx-7JZ" id="uQY-Ju-jtF"/>
