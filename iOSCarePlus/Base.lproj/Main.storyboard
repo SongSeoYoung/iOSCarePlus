@@ -50,7 +50,7 @@ Store</string>
                             <constraint firstItem="86m-jF-GWS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xJF-JO-c3Z"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="Bl1-i9-597"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="Bl1-i9-597"/>
                     <connections>
                         <outlet property="backgroundImageViewLeadingConstraint" destination="G4C-J9-639" id="Rj6-da-3PL"/>
                         <outlet property="logoView" destination="LIX-gF-zNm" id="zGk-wg-AEe"/>
@@ -59,7 +59,7 @@ Store</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237.68115942028987" y="943.52678571428567"/>
+            <point key="canvasLocation" x="235" y="662"/>
         </scene>
         <!--Item-->
         <scene sceneID="FqE-7t-JXt">
@@ -166,14 +166,46 @@ Store</string>
                             <constraint firstItem="vuR-kS-D6c" firstAttribute="trailing" secondItem="KdT-RS-wfn" secondAttribute="trailing" id="vmp-Hw-Nx5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="5WL-mG-yxZ"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="gameIcon" id="5WL-mG-yxZ"/>
                     <connections>
                         <outlet property="tableView" destination="KdT-RS-wfn" id="RDL-Y0-snS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e02-Js-PGl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237.68115942028987" y="1627.9017857142856"/>
+            <point key="canvasLocation" x="235" y="1326"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Xse-ll-fdt">
+            <objects>
+                <viewController id="4KD-Mu-kdQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cil-2U-23W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cHJ-6m-CF5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="heartIcon" id="oyF-Pf-j4g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zX7-GY-Tlh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="2006"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="3Vx-ei-Rrk">
+            <objects>
+                <viewController id="8tK-fB-hZN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CJo-T7-2ZE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ot8-Oy-BVB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="shopIcon" id="N5U-fG-Nqv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efs-jq-pJl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="2717"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gvb-qZ-TwF">
@@ -188,16 +220,21 @@ Store</string>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Qnr-yg-krJ"/>
                         <segue destination="96C-nx-7JZ" kind="relationship" relationship="viewControllers" id="Urm-dr-St9"/>
+                        <segue destination="4KD-Mu-kdQ" kind="relationship" relationship="viewControllers" id="Ret-ff-Ici"/>
+                        <segue destination="8tK-fB-hZN" kind="relationship" relationship="viewControllers" id="vl1-7n-VzQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ppf-cA-MTu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-886" y="1326"/>
+            <point key="canvasLocation" x="-2116" y="1858"/>
         </scene>
     </scenes>
     <resources>
+        <image name="gameIcon" width="55" height="55"/>
+        <image name="heartIcon" width="55" height="55"/>
         <image name="homeBackground" width="2071" height="812"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="homeIcon" width="55" height="55"/>
+        <image name="shopIcon" width="55" height="55"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

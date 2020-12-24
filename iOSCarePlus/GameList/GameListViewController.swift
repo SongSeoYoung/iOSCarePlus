@@ -56,7 +56,6 @@ class GameListViewController: UIViewController {
             }
         }
     }
-
     //indicator르르 불러야할 타이밍인지 체크하는 함수
     //if 문이 너무 많으면.. 이런식으로 사용가능
     //_ 넣은거는 나중에 함수 콜할 때 indexPath:indexPath 이런식으로 넣기 싫어서 그냥 파라미터를 indexPAth 로만 받도록한다.
