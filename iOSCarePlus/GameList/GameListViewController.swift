@@ -23,7 +23,7 @@ class GameListViewController: UIViewController {
     private var isEnd: Bool = false
 //    let getgamePriceURL = "https://api.ec.nintendo.com/v1/price?country=KR&ids=\(id)&lang=ko"
     var model: NewGameResponse? {
-        didSet {    //모델이 바귈 때 마다 테이블뷰 새로고침할 수 ㅣㅇㅆ도록
+        didSet {
             tableView.reloadData()
         }
     }
@@ -56,9 +56,7 @@ class GameListViewController: UIViewController {
             }
         }
     }
-    //indicator르르 불러야할 타이밍인지 체크하는 함수
-    //if 문이 너무 많으면.. 이런식으로 사용가능
-    //_ 넣은거는 나중에 함수 콜할 때 indexPath:indexPath 이런식으로 넣기 싫어서 그냥 파라미터를 indexPAth 로만 받도록한다.
+    //indicator를 불러야할 타이밍인지 체크하는 함수
     private func isIndicatorCell(_ indexPath: IndexPath) -> Bool {
         indexPath.row == model?.contents.count
     }
@@ -68,20 +66,23 @@ class GameListViewController: UIViewController {
 extension GameListViewController: UITableViewDelegate {
 }
 extension GameListViewController: UITableViewDataSource {
-    //tableView 가 처음 그려질 때 한 번 호출. 최초에 한 번이라고 인데,
+    //tableView 가 처음 그려질 때 한 번 호출. 최초에 한 번이지만.. 호출은 계속 되는 것 같다
     //마지막이 그려지기 직전에 호출
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isEnd {
+            //new Model 이 없을 때
             return (model?.contents.count ?? 0)
         } else {
-            return (model?.contents.count ?? 0) + 1     //무한스크롤링을 위해 하나 더 그려주도록한다. 그리고 마지막 셀에 대해 처리
+            if model == nil {
+                //통신 이전에는 model 이 비어있으니 그럴 경우 셀 0개 반환
+                return 0
+            }
+            return (model?.contents.count ?? 0) + 1     //무한스크롤링을 위해 하나 더 그려주도록한다.
         }
     }
 
     //display 하기 직전 cellforrowat 보다 더 빨리 불린다.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //row는 0부터 세고 contentcount 는 1부터세기에
-        //row 랑 count 랑 갯수가 같다는 것은 !!!마지막 추가된 비어있는 셀을 의미!!!!
         if isIndicatorCell(indexPath) {
             //이 때 또 다시 Api 콜하기
             //더 내용을 추가하기위해서
@@ -94,9 +95,6 @@ extension GameListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "GameItemCodeTableViewCell", for: indexPath)
 //        return cell
-
-        //row는 0부터 세고 contentcount 는 1부터세기에
-        //row 랑 count 랑 갯수가 같다는 것은 !!!마지막 추가된 비어있는 셀을 의미!!!!
         if isIndicatorCell(indexPath) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "indicatorCell", for: indexPath) as? IndicatorCell else { return UITableViewCell() }
             cell.animationIndicatorView()
@@ -105,12 +103,11 @@ extension GameListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "GameItemTableViewCell", for: indexPath) as? GameItemTableViewCell ,
               let content = model?.contents[indexPath.row] else { return UITableViewCell() }
-              let model: GameItemModel = GameItemModel(
-                gameTitle: content.formalName,
-                gameOriginPrice: 100,
-                gameDiscountPrice: nil,
-                imageURL: content.heroBannerURL,
-                screenshots: content.screenshots
+              let model: GameItemModel = GameItemModel( gameTitle: content.formalName,
+                                                        gameOriginPrice: 100,
+                                                        gameDiscountPrice: nil,
+                                                        imageURL: content.heroBannerURL,
+                                                        screenshots: content.screenshots
             )
             cell.setModel(model)
             return cell
