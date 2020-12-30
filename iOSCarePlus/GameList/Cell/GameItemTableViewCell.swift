@@ -4,9 +4,8 @@
 //
 //  Created by 송서영 on 2020/12/16.
 //
-
-import UIKit
 import Kingfisher
+import UIKit
 
 class GameItemTableViewCell: UITableViewCell {
     private var model: GameItemModel? {
@@ -24,15 +23,15 @@ class GameItemTableViewCell: UITableViewCell {
     }
     func setUIFromModel() {
         guard let model = model else { return }
-        let imageURL = URL(string: model.imageURL)
-        let borderColor = UIColor(red: 236 / 255.0, green: 236 / 255.0, blue: 236 / 255.0, alpha: 1).cgColor
+        let imageURL: URL? = URL(string: model.imageURL)
+        let borderColor: CGColor? = UIColor(red: 236 / 255.0, green: 236 / 255.0, blue: 236 / 255.0, alpha: 1).cgColor
         //rgb 는 0~1사이 값을 받기 대문에 우리가원하는 값을 소수점으로 나눠서 표현함
         gameImageView.kf.setImage(with: imageURL)
         gameImageView.layer.cornerRadius = 9
         gameImageView.layer.borderWidth = 1
         gameImageView.layer.borderColor = borderColor
         gameTitleLabel.text = model.gameTitle
-        if let discountPrice = model.gameDiscountPrice {
+        if let discountPrice: Int = model.gameDiscountPrice {
             gameCurrentPrice.text = "\(discountPrice)"
             gameOriginPrice.text = "\(model.gameOriginPrice)"
         } else {

@@ -7,13 +7,6 @@
 
 import Foundation
 
-struct NewGameResponse: Decodable {
-    var contents: [NewGameContent]
-    let length: Int
-    let offset: Int
-    let total: Int
-}
-
 struct NewGameContent: Decodable {
     let formalName: String
     let heroBannerURL: String
@@ -32,4 +25,11 @@ struct ScreenShotContent: Decodable {
 
 struct ImageURL: Decodable {
     let url: String
+}
+
+struct NewGameResponse: Decodable {
+    var contents: [NewGameContent]
+    let length: Int
+    let offset: Int
+    let total: Int
 }

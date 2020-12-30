@@ -8,9 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var logoView: UIView!
-    @IBOutlet weak var logoViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var backgroundImageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var logoView: UIView!
+    @IBOutlet private weak var logoViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var backgroundImageViewLeadingConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,6 @@ class ViewController: UIViewController {
             self?.slideBackgroundImageAnimation()
             self?.blinkLogoAnimation()
         }
-
     }
     private func animationSettingDefault() {
         logoViewTopConstraint.constant = -200

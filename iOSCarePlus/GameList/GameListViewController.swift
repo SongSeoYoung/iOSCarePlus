@@ -6,8 +6,8 @@
 //
 
 //함수는 호출의 순서대로 넣는게 좋다
-import UIKit
 import Alamofire
+import UIKit
 
 class GameListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
@@ -38,7 +38,7 @@ class GameListViewController: UIViewController {
         AF.request(getNewGameListURL).responseJSON { [weak self] response in
             guard let data = response.data else { return }
             //request 의 결과는 response 에서 가져오는 클로저로 작업
-            let decoder = JSONDecoder() //객체생성
+            let decoder: JSONDecoder = JSONDecoder() //객체생성
             //newModel 은 api 에서 새로 불러온 데이터
             guard let newModel: NewGameResponse = try? decoder.decode(NewGameResponse.self, from: data) else { return }
             //NewGameResponse.self => newgameresponse 타입을 넘겨준다의 의미
@@ -64,6 +64,7 @@ class GameListViewController: UIViewController {
     }
 }
 
+// MARK: - delegate, datasoucre
 extension GameListViewController: UITableViewDelegate {
 }
 extension GameListViewController: UITableViewDataSource {
@@ -97,16 +98,16 @@ extension GameListViewController: UITableViewDataSource {
         //row는 0부터 세고 contentcount 는 1부터세기에
         //row 랑 count 랑 갯수가 같다는 것은 !!!마지막 추가된 비어있는 셀을 의미!!!!
         if isIndicatorCell(indexPath) {
-            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "indicatorCell", for: indexPath) as? IndicatorCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "indicatorCell", for: indexPath) as? IndicatorCell else { return UITableViewCell() }
             cell.animationIndicatorView()
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "GameItemTableViewCell", for: indexPath) as? GameItemTableViewCell ,
               let content = model?.contents[indexPath.row] else { return UITableViewCell() }
-            let model = GameItemModel(
+              let model: GameItemModel = GameItemModel(
                 gameTitle: content.formalName,
-                gameOriginPrice: 10000,
+                gameOriginPrice: 100,
                 gameDiscountPrice: nil,
                 imageURL: content.heroBannerURL,
                 screenshots: content.screenshots
