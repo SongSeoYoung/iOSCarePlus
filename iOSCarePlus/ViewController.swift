@@ -17,6 +17,11 @@ class ViewController: UIViewController {
         logoView.layer.cornerRadius = 15
     }
 
+    @IBAction func logoTapAction(_ sender: UITapGestureRecognizer) {
+        print("tap")
+//        self?.blinkLogoAnimation()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.animationSettingDefault()

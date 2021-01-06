@@ -10,6 +10,10 @@ import Alamofire
 import UIKit
 
 class GameListViewController: UIViewController {
+    @IBOutlet private weak var newButton: SelectableButton!
+    @IBOutlet private weak var saleButton: SelectableButton!
+    //버튼 밑에 뷰의 움직임을 조정하기위해
+    @IBOutlet private weak var selectedLineNewConstraints: NSLayoutConstraint!
     @IBOutlet private weak var tableView: UITableView!
     //? 뒤는 파라미터. offset 이 페이지고 count 는 몇개를 가지고오느냐에 대한 정보
     private var getNewGameListURL: String {
@@ -59,6 +63,29 @@ class GameListViewController: UIViewController {
     //indicator를 불러야할 타이밍인지 체크하는 함수
     private func isIndicatorCell(_ indexPath: IndexPath) -> Bool {
         indexPath.row == model?.contents.count
+    }
+    
+    @IBAction private func newButtonTouchUp(_ sender: Any) {
+        newButton.isSelected = true
+        saleButton.isSelected = false
+        
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            self?.selectedLineNewConstraints.constant = 0
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction private func saleButtonTouchUp(_ sender: Any) {
+        saleButton.isSelected = true
+        newButton.isSelected = false
+        
+        // new 버튼 가운데에서 sale 버튼 가운데 값으로 움직여야하니까
+        // 각 버튼의 x 좌표 값 차이만큼을 오토레이아웃의 constant 를 변경하면된다.
+        let constant = saleButton.center.x - newButton.center.x
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            self?.selectedLineNewConstraints.constant = constant
+            self?.view.layoutIfNeeded()
+        }
     }
 }
 

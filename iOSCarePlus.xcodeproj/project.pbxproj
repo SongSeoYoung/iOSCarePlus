@@ -22,6 +22,9 @@
 		7C873312258A247B007D51DD /* GameItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C873311258A247B007D51DD /* GameItemTableViewCell.swift */; };
 		7C873319258A2E96007D51DD /* NewGameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C873318258A2E96007D51DD /* NewGameResponse.swift */; };
 		7C873320258A38B5007D51DD /* GamePriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87331F258A38B5007D51DD /* GamePriceResponse.swift */; };
+		7CB1FDAF25A5D5E400936E54 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1FDAE25A5D5E300936E54 /* Navigation.storyboard */; };
+		7CB1FDB225A5DF9500936E54 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1FDB125A5DF9500936E54 /* SelectableButton.swift */; };
+		7CB1FDB525A5E00500936E54 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1FDB425A5E00500936E54 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		7C873311258A247B007D51DD /* GameItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemTableViewCell.swift; sourceTree = "<group>"; };
 		7C873318258A2E96007D51DD /* NewGameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameResponse.swift; sourceTree = "<group>"; };
 		7C87331F258A38B5007D51DD /* GamePriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePriceResponse.swift; sourceTree = "<group>"; };
+		7CB1FDAE25A5D5E300936E54 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
+		7CB1FDB125A5DF9500936E54 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
+		7CB1FDB425A5E00500936E54 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C4C228FAD0277BEB6BE8E5BE /* Pods-iOSCarePlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCarePlus.debug.xcconfig"; path = "Target Support Files/Pods-iOSCarePlus/Pods-iOSCarePlus.debug.xcconfig"; sourceTree = "<group>"; };
 		D29174C88EBEAEE463641FF9 /* Pods_iOSCarePlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCarePlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD4301BBE4CE9A6F9115A0E /* Pods-iOSCarePlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSCarePlus.release.xcconfig"; path = "Target Support Files/Pods-iOSCarePlus/Pods-iOSCarePlus.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 				7C3B66B0257A76DD00FAD676 /* LaunchScreen.storyboard */,
 				7C3B66B3257A76DD00FAD676 /* Info.plist */,
 				7C598EAD25935D6600CC1880 /* GameList */,
+				7CB1FDAE25A5D5E300936E54 /* Navigation.storyboard */,
+				7CB1FDB425A5E00500936E54 /* Colors.xcassets */,
 			);
 			path = iOSCarePlus;
 			sourceTree = "<group>";
@@ -106,6 +114,7 @@
 				7C87330B258A1F70007D51DD /* GameListViewController.swift */,
 				7C598EB425935DA500CC1880 /* Model */,
 				7C598EB125935D9300CC1880 /* Cell */,
+				7CB1FDB125A5DF9500936E54 /* SelectableButton.swift */,
 			);
 			path = GameList;
 			sourceTree = "<group>";
@@ -204,6 +213,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB1FDB525A5E00500936E54 /* Colors.xcassets in Resources */,
+				7CB1FDAF25A5D5E400936E54 /* Navigation.storyboard in Resources */,
 				7C3B66B2257A76DD00FAD676 /* LaunchScreen.storyboard in Resources */,
 				7C3B66AF257A76DD00FAD676 /* Assets.xcassets in Resources */,
 				7C3B66AD257A76D700FAD676 /* Main.storyboard in Resources */,
@@ -286,6 +297,7 @@
 				7C3B66A8257A76D700FAD676 /* SceneDelegate.swift in Sources */,
 				7C598EC5259372FA00CC1880 /* IndicatorCell.swift in Sources */,
 				7C873320258A38B5007D51DD /* GamePriceResponse.swift in Sources */,
+				7CB1FDB225A5DF9500936E54 /* SelectableButton.swift in Sources */,
 				7C87330F258A2396007D51DD /* GameItemModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
