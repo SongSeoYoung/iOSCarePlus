@@ -22,6 +22,14 @@ class GameListViewController: UIViewController {
         //getter setter 존재가능인데, getter만 잇으면 get 자체를 삭제가능
          "https://ec.nintendo.com/api/KR/ko/search/new?count=\(newCount)&offset=\(newOffset)"
     }
+    
+    private var gameSaleItemListURL: String {
+        "https://ec.nintendo.com/api/KR/ko/search/sales?count=\(newCount)&offset=\(newOffset)"
+    }
+    private var gameNewItemListURL: String {
+        "https://ec.nintendo.com/api/KR/ko/search/new?count=\(newCount)&offset=\(newOffset)"
+    }
+    
     private var newCount: Int = 10
     private var newOffset: Int = 0
     private var isEnd: Bool = false
@@ -35,11 +43,12 @@ class GameListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //비동기 통신 (데이터를 주고 받았으면 테이블뷰를 새로 그리라고 해야함)
-        newGameListApiCall()
+        GameListApiCall(gameNewItemListURL)
         tableView.register(GameItemCodeTableViewCell.self, forCellReuseIdentifier: "GameItemCodeTableViewCell")
     }
-    private func newGameListApiCall() {
-        AF.request(getNewGameListURL).responseJSON { [weak self] response in
+    
+    private func GameListApiCall(_ url: String) {
+        AF.request(url).responseJSON { [weak self] response in
             guard let data = response.data else { return }
             //request 의 결과는 response 에서 가져오는 클로저로 작업
             let decoder: JSONDecoder = JSONDecoder() //객체생성
@@ -73,6 +82,9 @@ class GameListViewController: UIViewController {
             self?.selectedLineNewConstraints.constant = 0
             self?.view.layoutIfNeeded()
         }
+        model = nil
+        newOffset = 0
+        GameListApiCall(gameNewItemListURL)
     }
     
     @IBAction private func saleButtonTouchUp(_ sender: Any) {
@@ -86,6 +98,9 @@ class GameListViewController: UIViewController {
             self?.selectedLineNewConstraints.constant = constant
             self?.view.layoutIfNeeded()
         }
+        model = nil
+        newOffset = 0
+        GameListApiCall(gameSaleItemListURL)
     }
 }
 
@@ -108,20 +123,16 @@ extension GameListViewController: UITableViewDataSource {
         }
     }
 
-    //display 하기 직전 cellforrowat 보다 더 빨리 불린다.
+    //display 하기 직전 cell for row at 보다 더 빨리 불린다.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if isIndicatorCell(indexPath) {
-            //이 때 또 다시 Api 콜하기
-            //더 내용을 추가하기위해서
             newOffset += 10      //10번째 부터 새롭게 10개를 더 콜해줌
-            newGameListApiCall()
+            GameListApiCall(gameNewItemListURL)
         }
     }
 
     //cell 이 그려지기 직전에 호출됨
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "GameItemCodeTableViewCell", for: indexPath)
-//        return cell
         if isIndicatorCell(indexPath) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "indicatorCell", for: indexPath) as? IndicatorCell else { return UITableViewCell() }
             cell.animationIndicatorView()

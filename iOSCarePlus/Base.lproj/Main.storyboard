@@ -74,7 +74,6 @@ Store</string>
         <!--Item-->
         <scene sceneID="FqE-7t-JXt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e02-Js-PGl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="96C-nx-7JZ" customClass="GameListViewController" customModule="iOSCarePlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7hQ-8b-B7x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -253,6 +252,7 @@ Store</string>
                         <outlet property="tableView" destination="KdT-RS-wfn" id="RDL-Y0-snS"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e02-Js-PGl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="234.78260869565219" y="1325.8928571428571"/>
         </scene>
