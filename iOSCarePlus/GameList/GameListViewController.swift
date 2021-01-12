@@ -43,11 +43,11 @@ class GameListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //비동기 통신 (데이터를 주고 받았으면 테이블뷰를 새로 그리라고 해야함)
-        GameListApiCall(gameNewItemListURL)
+        gameListApiCall(gameNewItemListURL)
         tableView.register(GameItemCodeTableViewCell.self, forCellReuseIdentifier: "GameItemCodeTableViewCell")
     }
     
-    private func GameListApiCall(_ url: String) {
+    private func gameListApiCall(_ url: String) {
         AF.request(url).responseJSON { [weak self] response in
             guard let data = response.data else { return }
             //request 의 결과는 response 에서 가져오는 클로저로 작업
@@ -84,7 +84,7 @@ class GameListViewController: UIViewController {
         }
         model = nil
         newOffset = 0
-        GameListApiCall(gameNewItemListURL)
+        gameListApiCall(gameNewItemListURL)
     }
     
     @IBAction private func saleButtonTouchUp(_ sender: Any) {
@@ -93,14 +93,14 @@ class GameListViewController: UIViewController {
         
         // new 버튼 가운데에서 sale 버튼 가운데 값으로 움직여야하니까
         // 각 버튼의 x 좌표 값 차이만큼을 오토레이아웃의 constant 를 변경하면된다.
-        let constant = saleButton.center.x - newButton.center.x
+        let constant: CGFloat = saleButton.center.x - newButton.center.x
         UIView.animate(withDuration: 0.1) { [weak self] in
             self?.selectedLineNewConstraints.constant = constant
             self?.view.layoutIfNeeded()
         }
         model = nil
         newOffset = 0
-        GameListApiCall(gameSaleItemListURL)
+        gameListApiCall(gameSaleItemListURL)
     }
 }
 
@@ -127,7 +127,7 @@ extension GameListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if isIndicatorCell(indexPath) {
             newOffset += 10      //10번째 부터 새롭게 10개를 더 콜해줌
-            GameListApiCall(gameNewItemListURL)
+            gameListApiCall(gameNewItemListURL)
         }
     }
 
