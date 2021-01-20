@@ -107,7 +107,8 @@ class GameListViewController: UIViewController {
 // MARK: - delegate, datasoucre
 extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pageViewController: UIViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameDetailPageViewController")
+        guard let pageViewController: GameDetailPageViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameDetailPageViewController") as? GameDetailPageViewController else { return }
+        pageViewController.model = model?.contents[indexPath.row]
         navigationController?.pushViewController(pageViewController, animated: true)
     }
 }

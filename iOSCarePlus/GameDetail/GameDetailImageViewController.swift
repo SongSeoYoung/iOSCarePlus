@@ -8,5 +8,8 @@
 import UIKit
 
 class GameDetailImageViewController: UIViewController {
-
+    var url: String?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
