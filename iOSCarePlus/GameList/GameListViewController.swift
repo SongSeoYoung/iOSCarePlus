@@ -106,6 +106,10 @@ class GameListViewController: UIViewController {
 
 // MARK: - delegate, datasoucre
 extension GameListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pageViewController: UIViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameDetailPageViewController")
+        navigationController?.pushViewController(pageViewController, animated: true)
+    }
 }
 extension GameListViewController: UITableViewDataSource {
     //tableView 가 처음 그려질 때 한 번 호출. 최초에 한 번이지만.. 호출은 계속 되는 것 같다
