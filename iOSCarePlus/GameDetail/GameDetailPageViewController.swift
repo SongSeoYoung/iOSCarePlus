@@ -10,7 +10,8 @@ import UIKit
 class GameDetailPageViewController: UIPageViewController {
     // 보여줄 뷰 컨트롤러들을 묶어둘 것. -> image viewcontroller
     //처음부터 프로퍼티에 값을 함수의 리턴값으로 줄 수 없다. 인스턴스가 만들어질 때 함수를 사용할 수 없음.!
-    var orderedViewControllers: [UIViewController]?
+    //append 를 하려면 빈 배열이 만들어져있어야지 초기값을 var orderedViewControllers: [UIViewController]? 이런식으로만하면 APPEND 가 안됨.
+    var orderedViewControllers: [UIViewController]? = []
     
     //받을 수 있는 모델 만들기
     var model: NewGameContent?
